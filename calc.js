@@ -39,9 +39,16 @@ export function calcCustoMat(runa, precos) {
  * @param {number} chance             — chance em % (1–100)
  * @returns {number}
  */
-export function calcCustoEsperado(custoPorTentativa, chance) {
+export function parseQtd(qtdCriada) {
+  if (!qtdCriada) return 1;
+  const partes = String(qtdCriada).split("a").map((s) => Number(s.trim()));
+  if (partes.length === 2) return (partes[0] + partes[1]) / 2;
+  return partes[0] || 1;
+}
+
+export function calcCustoEsperado(custoPorTentativa, chance, qtd = 1) {
   if (chance <= 0) return Infinity;
-  return Math.round(custoPorTentativa * (100 / chance));
+  return Math.round((custoPorTentativa * (100 / chance)) / qtd);
 }
 
 /**

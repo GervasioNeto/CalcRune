@@ -1,6 +1,6 @@
 // js/ui.js — renderização e manipulação do DOM
 import { RUNAS, RUNAS_BRUTAS } from "./runas.js";
-import { calcChance, calcCustoMat, calcCustoEsperado, melhorBruta } from "./calc.js";
+import { calcChance, calcCustoMat, calcCustoEsperado, melhorBruta, parseQtd } from "./calc.js";
 
 // ─── Estado global da aplicação ───────────────────────────────────────────────
 const state = {
@@ -103,7 +103,7 @@ export function renderBrutaCards() {
 
   RUNAS_BRUTAS.forEach((br, i) => {
     const ch = calcChance(runa, br, attrs());
-    const esp = calcCustoEsperado(br.preco + custoMat, ch);
+    const esp = calcCustoEsperado(br.preco + custoMat, ch, parseQtd(runa.qtdCriada));
 
     const card = document.createElement("div");
     card.className = "bruta-card" + (i === state.brutaIdx ? " selected" : "");
@@ -148,7 +148,7 @@ export function renderResults() {
   const custoMat  = calcCustoMat(runa, state.precosMat[state.runaIdx]);
   const ch        = calcChance(runa, bruta, attrs());
   const totalTent = bruta.preco + custoMat;
-  const esp       = calcCustoEsperado(totalTent, ch);
+  const esp       = calcCustoEsperado(totalTent, ch, parseQtd(runa.qtdCriada));
   const tentativas = (100 / ch).toFixed(1);
 
   const melhor = melhorBruta(runa, RUNAS_BRUTAS, state.precosMat[state.runaIdx], attrs());
