@@ -1,0 +1,480 @@
+/* css/style.css — Rune Knight Rune Calc
+   Tema: dark medieval com acentos âmbar/dourado
+   Fontes: Cinzel (display) + Inter Tight (corpo)
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter+Tight:wght@300;400;500;600&display=swap");
+
+/* ─── Reset & Base ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep:    #0d0d0f;
+  --bg-surface: #141418;
+  --bg-raised:  #1c1c22;
+  --bg-card:    #21212a;
+  --bg-hover:   #2a2a35;
+
+  --border:     rgba(255,255,255,0.07);
+  --border-md:  rgba(255,255,255,0.12);
+  --border-hi:  rgba(255,255,255,0.20);
+
+  --gold:       #c9a84c;
+  --gold-light: #e2c47a;
+  --gold-dim:   #6e5a2a;
+  --gold-glow:  rgba(201,168,76,0.15);
+
+  --teal:       #3dbfa0;
+  --teal-dim:   rgba(61,191,160,0.15);
+
+  --red:        #d95f5f;
+  --red-dim:    rgba(217,95,95,0.15);
+
+  --text-1: #eae8e0;
+  --text-2: #9e9b8e;
+  --text-3: #5e5c54;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --font-display: "Cinzel", serif;
+  --font-body:    "Inter Tight", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ─── Textura de fundo ────────────────────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201,168,76,0.08) 0%, transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Crect width='60' height='60' fill='none'/%3E%3Cpath d='M0 0h60v60H0z' fill='none' stroke='rgba(255,255,255,0.015)' stroke-width='0.5'/%3E%3C/svg%3E");
+  z-index: 0;
+}
+
+/* ─── Layout ──────────────────────────────────────────────────────────────── */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+/* ─── Header ──────────────────────────────────────────────────────────────── */
+header {
+  position: relative;
+  padding: 3rem 0 2.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.header-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+}
+
+header h1 span {
+  color: var(--gold);
+}
+
+.header-sub {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-top: 0.6rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-rune-deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: var(--gold-dim);
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.3em;
+}
+
+.header-rune-deco::before,
+.header-rune-deco::after {
+  content: "";
+  flex: 1;
+  max-width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold-dim));
+}
+.header-rune-deco::after {
+  background: linear-gradient(to left, transparent, var(--gold-dim));
+}
+
+/* ─── Seções ──────────────────────────────────────────────────────────────── */
+section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── Inputs de atributos ─────────────────────────────────────────────────── */
+.attrs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+}
+
+.attr-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.attr-field label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+input[type="number"] {
+  background: var(--bg-card);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 8px 12px;
+  width: 100%;
+  transition: border-color 0.15s, background 0.15s;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button { display: none; }
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--bg-hover);
+}
+
+.formula-box {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--text-2);
+  font-family: var(--font-body);
+  margin-top: 1rem;
+  line-height: 1.5;
+}
+
+.formula-box code {
+  color: var(--gold-light);
+  font-family: monospace;
+  font-size: 12px;
+}
+
+/* ─── Tabs de runas ───────────────────────────────────────────────────────── */
+#runa-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tab-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-sm);
+  color: var(--text-2);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 6px 14px;
+  transition: all 0.15s;
+}
+
+.tab-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hi);
+  color: var(--text-1);
+}
+
+.tab-btn.active {
+  background: var(--gold-glow);
+  border-color: var(--gold);
+  color: var(--gold-light);
+  font-weight: 500;
+}
+
+/* ─── Cards de materiais ──────────────────────────────────────────────────── */
+#mat-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 10px;
+}
+
+.mat-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mat-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.mat-nome {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-1);
+  line-height: 1.3;
+}
+
+.badge {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-req {
+  background: var(--gold-glow);
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+}
+
+.badge-opt {
+  background: rgba(255,255,255,0.04);
+  color: var(--text-3);
+  border: 1px solid var(--border);
+}
+
+.mat-label {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.mat-input {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-md) !important;
+  border-radius: var(--radius-sm) !important;
+  font-size: 14px !important;
+  padding: 6px 10px !important;
+}
+
+/* ─── Cards de runas brutas ───────────────────────────────────────────────── */
+#bruta-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.bruta-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+  position: relative;
+  overflow: hidden;
+}
+
+.bruta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: radial-gradient(ellipse at top, var(--gold-glow), transparent 70%);
+  transition: opacity 0.2s;
+}
+
+.bruta-card:hover { border-color: var(--border-hi); background: var(--bg-hover); }
+.bruta-card:hover::before { opacity: 1; }
+
+.bruta-card.selected {
+  border-color: var(--gold);
+  background: var(--bg-hover);
+}
+.bruta-card.selected::before { opacity: 1; }
+
+.bruta-nome {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-1);
+  margin-bottom: 6px;
+}
+
+.bruta-preco {
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.bruta-chance {
+  font-size: 12px;
+  color: var(--text-2);
+}
+
+.bruta-chance strong {
+  color: var(--gold-light);
+}
+
+.bruta-esp {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+/* ─── Métricas de resultado ───────────────────────────────────────────────── */
+#metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.metric-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+}
+
+.metric-card.highlight {
+  border-color: var(--gold-dim);
+  background: var(--gold-glow);
+}
+
+.metric-label {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-1);
+  line-height: 1.2;
+}
+
+.metric-card.highlight .metric-value {
+  color: var(--gold-light);
+}
+
+.metric-sub {
+  font-size: 10px;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+/* ─── Veredicto ───────────────────────────────────────────────────────────── */
+#verdict {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+  min-height: 44px;
+}
+
+#verdict strong { color: var(--text-1); }
+.verdict-good { color: var(--teal); font-weight: 500; }
+.verdict-bad  { color: var(--red); }
+
+/* ─── Hint / estados vazios ───────────────────────────────────────────────── */
+.hint {
+  font-size: 13px;
+  color: var(--text-3);
+  font-style: italic;
+}
+
+/* ─── Footer ──────────────────────────────────────────────────────────────── */
+footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 2rem;
+}
+
+footer a { color: var(--gold-dim); text-decoration: none; }
+footer a:hover { color: var(--gold); }
+
+/* ─── Responsivo ──────────────────────────────────────────────────────────── */
+@media (max-width: 520px) {
+  .attrs-grid { grid-template-columns: 1fr 1fr; }
+  #bruta-cards { grid-template-columns: 1fr 1fr; }
+  #metrics     { grid-template-columns: 1fr 1fr; }
+  header h1 { font-size: 1.5rem; }
+}

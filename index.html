@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rune Knight — Rune Calc</title>
+  <meta name="description" content="Calculadora de craft de runas para Rune Knight. Descubra qual Runa Bruta compensa mais com seus atributos e preços de mercado." />
+  <meta name="theme-color" content="#0d0d0f" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <p class="header-eyebrow">Ragnarok Online — Rune Knight</p>
+      <h1>Rune <span>Calc</span></h1>
+      <p class="header-sub">
+        Calcule o custo esperado por craft e descubra qual Runa Bruta compensa mais para seus atributos e preços de mercado.
+      </p>
+      <div class="header-rune-deco">ᚦ ᛁ ᚹ ᚺ ᛟ ᚢ ᚱ ᚾ ᛒ ᛚ</div>
+    </header>
+
+    <!-- ATRIBUTOS -->
+    <section aria-labelledby="title-attrs">
+      <h2 class="section-title" id="title-attrs">Atributos do personagem</h2>
+      <div class="attrs-grid">
+        <div class="attr-field">
+          <label for="des">Destreza (DES)</label>
+          <input type="number" id="des" value="80" min="0" max="300" />
+        </div>
+        <div class="attr-field">
+          <label for="sor">Sorte (SOR)</label>
+          <input type="number" id="sor" value="50" min="0" max="300" />
+        </div>
+        <div class="attr-field">
+          <label for="nvcl">Nível de classe</label>
+          <input type="number" id="nvcl" value="150" min="1" max="175" />
+        </div>
+      </div>
+      <div class="formula-box">
+        Fórmula oficial:
+        <code>Chance = Base + (DES÷30 + SOR÷10 + Nv.Classe÷10) + Raridade − Dificuldade</code>
+      </div>
+    </section>
+
+    <!-- SELEÇÃO DA RUNA -->
+    <section aria-labelledby="title-runa">
+      <h2 class="section-title" id="title-runa">Runa que deseja criar</h2>
+      <div id="runa-tabs" role="group" aria-label="Selecione a runa"></div>
+    </section>
+
+    <!-- MATERIAIS -->
+    <section aria-labelledby="title-mat">
+      <h2 class="section-title" id="title-mat">Preço dos materiais</h2>
+      <div id="mat-fields"></div>
+    </section>
+
+    <!-- RUNA BRUTA -->
+    <section aria-labelledby="title-bruta">
+      <h2 class="section-title" id="title-bruta">Selecione a runa bruta</h2>
+      <div id="bruta-cards" role="group" aria-label="Selecione a runa bruta"></div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section aria-labelledby="title-result">
+      <h2 class="section-title" id="title-result">Resultado</h2>
+      <div id="metrics"></div>
+      <div id="verdict" aria-live="polite"></div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Rune Knight Rune Calc — dados baseados na wiki oficial &nbsp;·&nbsp; <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></p>
+    <p style="margin-top:4px">Contribuições são bem-vindas. Os preços são do seu servidor — insira os valores de mercado para resultados precisos.</p>
+  </footer>
+
+  <script type="module">
+    import { init } from "./ui.js";
+    init();
+  </script>
+
+</body>
+</html>
