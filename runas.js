@@ -15,9 +15,8 @@ export const RUNAS = [
   {
     nome: "Thurisaz",
     habilidade: "Força Titânica",
-    base: 32,
     dif: 5,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Cabelo Azul", qty: 1, obrigatorio: true },
@@ -27,9 +26,8 @@ export const RUNAS = [
   {
     nome: "Isa",
     habilidade: "Vitalidade Rúnica",
-    base: 34,
     dif: 10,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Coração Incandescente", qty: 1, obrigatorio: true },
@@ -38,9 +36,8 @@ export const RUNAS = [
   {
     nome: "Wyrd",
     habilidade: "Explosão Rúnica",
-    base: 36,
     dif: 10,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
@@ -51,9 +48,8 @@ export const RUNAS = [
   {
     nome: "Hagalaz",
     habilidade: "Escamas Rochosas",
-    base: 38,
     dif: 5,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Casca Arredondada", qty: 1, obrigatorio: true },
@@ -63,9 +59,8 @@ export const RUNAS = [
   {
     nome: "Othila",
     habilidade: "Aura de Combate",
-    base: 40,
     dif: 5,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
@@ -75,9 +70,8 @@ export const RUNAS = [
   {
     nome: "Uruz",
     habilidade: "Regeneração Espiritual",
-    base: 42,
     dif: 15,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Cabelo Horrendo", qty: 1, obrigatorio: true },
@@ -87,9 +81,8 @@ export const RUNAS = [
   {
     nome: "Raido",
     habilidade: "Golpe Titânico",
-    base: 44,
     dif: 5,
-    qtdCriada:"2 a 4",
+    qtdCriada: "2 a 4",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
@@ -99,9 +92,8 @@ export const RUNAS = [
   {
     nome: "Nauthiz",
     habilidade: "Purificação",
-    base: 46,
     dif: 15,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
@@ -112,9 +104,8 @@ export const RUNAS = [
   {
     nome: "Berkana",
     habilidade: "Escudos Milenares",
-    base: 48,
     dif: 20,
-    qtdCriada:"2",
+    qtdCriada: "2",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Armadura de Dullahan", qty: 1, obrigatorio: true },
@@ -123,9 +114,8 @@ export const RUNAS = [
   {
     nome: "Luxanima",
     habilidade: "Luz da Alma",
-    base: 50,
     dif: 20,
-    qtdCriada:"2 a 6",
+    qtdCriada: "2 a 6",
     mat: [
       { nome: "Galho Antigo", qty: 1, obrigatorio: true },
       { nome: "Partículas de Luz", qty: 3, obrigatorio: true },

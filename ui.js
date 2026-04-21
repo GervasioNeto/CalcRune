@@ -1,6 +1,12 @@
 // js/ui.js — renderização e manipulação do DOM
 import { RUNAS, RUNAS_BRUTAS } from "./runas.js";
-import { calcChance, calcCustoMat, calcCustoEsperado, melhorBruta, parseQtd } from "./calc.js";
+import {
+  calcChance,
+  calcCustoMat,
+  calcCustoEsperado,
+  melhorBruta,
+  parseQtd,
+} from "./calc.js";
 
 // ─── Estado global da aplicação ───────────────────────────────────────────────
 const state = {
@@ -12,9 +18,10 @@ const state = {
 
 function attrs() {
   return {
-    des:  Number(document.getElementById("des").value)  || 0,
-    sor:  Number(document.getElementById("sor").value)  || 0,
+    des: Number(document.getElementById("des").value) || 0,
+    sor: Number(document.getElementById("sor").value) || 0,
     nvCl: Number(document.getElementById("nvcl").value) || 1,
+    nvPericia: Number(document.getElementById("nvpericia").value) || 1,
   };
 }
 
@@ -29,7 +36,7 @@ export function renderRunaTabs() {
   RUNAS.forEach((r, i) => {
     const btn = document.createElement("button");
     btn.className = "tab-btn" + (i === state.runaIdx ? " active" : "");
-    btn.textContent = r.nome;
+    btn.innerHTML = `${r.nome}<span class="tab-dif">Dificuldade ${r.dif}%</span>`;
     btn.setAttribute("aria-pressed", i === state.runaIdx);
     btn.addEventListener("click", () => {
       state.runaIdx = i;
@@ -103,7 +110,11 @@ export function renderBrutaCards() {
 
   RUNAS_BRUTAS.forEach((br, i) => {
     const ch = calcChance(runa, br, attrs());
-    const esp = calcCustoEsperado(br.preco + custoMat, ch, parseQtd(runa.qtdCriada));
+    const esp = calcCustoEsperado(
+      br.preco + custoMat,
+      ch,
+      parseQtd(runa.qtdCriada),
+    );
 
     const card = document.createElement("div");
     card.className = "bruta-card" + (i === state.brutaIdx ? " selected" : "");
@@ -127,7 +138,9 @@ export function renderBrutaCards() {
       renderResults();
     };
     card.addEventListener("click", select);
-    card.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") select(); });
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") select();
+    });
     container.appendChild(card);
   });
 }
@@ -143,15 +156,20 @@ export function renderResults() {
     return;
   }
 
-  const runa  = RUNAS[state.runaIdx];
+  const runa = RUNAS[state.runaIdx];
   const bruta = RUNAS_BRUTAS[state.brutaIdx];
-  const custoMat  = calcCustoMat(runa, state.precosMat[state.runaIdx]);
-  const ch        = calcChance(runa, bruta, attrs());
+  const custoMat = calcCustoMat(runa, state.precosMat[state.runaIdx]);
+  const ch = calcChance(runa, bruta, attrs());
   const totalTent = bruta.preco + custoMat;
-  const esp       = calcCustoEsperado(totalTent, ch, parseQtd(runa.qtdCriada));
+  const esp = calcCustoEsperado(totalTent, ch, parseQtd(runa.qtdCriada));
   const tentativas = (100 / ch).toFixed(1);
 
-  const melhor = melhorBruta(runa, RUNAS_BRUTAS, state.precosMat[state.runaIdx], attrs());
+  const melhor = melhorBruta(
+    runa,
+    RUNAS_BRUTAS,
+    state.precosMat[state.runaIdx],
+    attrs(),
+  );
   const isMelhor = melhor.bruta.nome === bruta.nome;
 
   metricsEl.innerHTML = `
@@ -183,7 +201,7 @@ export function renderResults() {
 
 // ─── Inicialização ─────────────────────────────────────────────────────────────
 export function init() {
-  ["des", "sor", "nvcl"].forEach((id) => {
+  ["des", "sor", "nvcl", "nvpericia"].forEach((id) => {
     document.getElementById(id).addEventListener("input", () => {
       renderBrutaCards();
       renderResults();

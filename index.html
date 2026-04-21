@@ -27,20 +27,24 @@
       <div class="attrs-grid">
         <div class="attr-field">
           <label for="des">Destreza (DES)</label>
-          <input type="number" id="des" value="80" min="0" max="300" />
+          <input type="number" id="des" value="" min="1" max="300" placeholder="0"/>
         </div>
         <div class="attr-field">
           <label for="sor">Sorte (SOR)</label>
-          <input type="number" id="sor" value="50" min="0" max="300" />
+          <input type="number" id="sor" value="" min="1" max="300" placeholder="0" />
         </div>
         <div class="attr-field">
           <label for="nvcl">Nível de classe</label>
-          <input type="number" id="nvcl" value="150" min="1" max="175" />
+          <input type="number" id="nvcl" value="70" min="1" max="70" placeholder="1" />
+        </div>
+        <div class="attr-field">
+          <label for="nvpericia">Perícia em Runas (Nv.)</label>
+          <input type="number" id="nvpericia" value="10" min="1" max="10" placeholder="1" />
         </div>
       </div>
       <div class="formula-box">
         Fórmula oficial:
-        <code>Chance = Base + (DES÷30 + SOR÷10 + Nv.Classe÷10) + Raridade − Dificuldade</code>
+        <code>Chance = (30 + Perícia×2) + (DES÷30 + SOR÷10 + Nv.Classe÷10) + Raridade − Dificuldade</code>
       </div>
     </section>
 

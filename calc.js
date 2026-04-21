@@ -9,9 +9,10 @@
  * @returns {number} chance em % (1–100)
  */
 export function calcChance(runa, bruta, attrs) {
-  const { des = 0, sor = 0, nvCl = 1 } = attrs;
+  const { des = 0, sor = 0, nvCl = 1, nvPericia = 1 } = attrs;
+  const base = 30 + nvPericia * 2;
   const raw =
-    runa.base +
+    base +
     Math.floor(des / 30) +
     Math.floor(sor / 10) +
     Math.floor(nvCl / 10) +
