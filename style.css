@@ -269,6 +269,79 @@ input[type="number"]:focus {
   letter-spacing: 0.02em;
 }
 
+.tab-img {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+}
+
+.tab-img-placeholder {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.runa-img-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.runa-img-big {
+  width: 75px;
+  height: 100px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.runa-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.runa-info-nome {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.runa-info-hab {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.runa-desc {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: var(--text-2);
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.img-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.img-overlay.hidden {
+  display: none;
+}
+
+.img-overlay img {
+  width: 75px;
+  height: 100px;
+  image-rendering: pixelated;
+}
+
 /* ─── Cards de materiais ──────────────────────────────────────────────────── */
 #mat-fields {
   display: grid;

@@ -29,6 +29,24 @@ function fmt(n) {
   return n.toLocaleString("pt-BR");
 }
 
+function imgUrlLarge(imgUrl) {
+  return imgUrl.replace("/img/items/item/", "/img/items/collection/");
+}
+
+function openImgOverlay(imgUrl, alt) {
+  const overlay = document.getElementById("img-overlay");
+  const img     = document.getElementById("img-overlay-src");
+  img.src = imgUrlLarge(imgUrl);
+  img.alt = alt;
+  overlay.classList.remove("hidden");
+}
+
+function initImgOverlay() {
+  document.getElementById("img-overlay").addEventListener("click", (e) => {
+    e.currentTarget.classList.add("hidden");
+  });
+}
+
 // ─── Tabs de seleção de runa ───────────────────────────────────────────────────
 export function renderRunaTabs() {
   const container = document.getElementById("runa-tabs");
@@ -36,7 +54,8 @@ export function renderRunaTabs() {
   RUNAS.forEach((r, i) => {
     const btn = document.createElement("button");
     btn.className = "tab-btn" + (i === state.runaIdx ? " active" : "");
-    btn.innerHTML = `${r.nome}<span class="tab-dif">Dificuldade ${r.dif}%</span>`;
+    const imgTag = r.imgUrl ? `<img class="tab-img" src="${r.imgUrl}" alt="${r.nome}" />` : `<span class="tab-img-placeholder"></span>`;
+    btn.innerHTML = `${imgTag}${r.nome}<span class="tab-dif">Dificuldade ${r.dif}%</span>`;
     btn.setAttribute("aria-pressed", i === state.runaIdx);
     btn.addEventListener("click", () => {
       state.runaIdx = i;
@@ -58,6 +77,22 @@ export function renderMatFields() {
   const container = document.getElementById("mat-fields");
   container.innerHTML = "";
   const runa = RUNAS[state.runaIdx];
+
+  if (runa.imgUrl) {
+    const header = document.createElement("div");
+    header.className = "runa-img-header";
+    const desc = runa.runeDesc
+      ? `<p class="runa-desc">${runa.runeDesc.replace(/\n/g, "<br>")}</p>`
+      : "";
+    header.innerHTML = `
+      <img src="${imgUrlLarge(runa.imgUrl)}" alt="${runa.nome}" class="runa-img-big" />
+      <div class="runa-info">
+        <span class="runa-info-nome">${runa.nome}</span>
+        <span class="runa-info-hab">${runa.habilidade}</span>
+        ${desc}
+      </div>`;
+    container.appendChild(header);
+  }
 
   runa.mat.forEach((mat, i) => {
     const saved = state.precosMat[state.runaIdx][i] ?? "";
@@ -208,6 +243,7 @@ export function init() {
     });
   });
 
+  initImgOverlay();
   renderRunaTabs();
   renderMatFields();
   renderBrutaCards();
