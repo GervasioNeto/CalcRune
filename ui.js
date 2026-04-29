@@ -31,7 +31,7 @@ function fmt(n) {
 }
 
 function imgUrlLarge(imgUrl) {
-  return imgUrl.replace("/img/items/item/", "/img/items/collection/");
+  return imgUrl.replace("/items/item/", "/items/collection/");
 }
 
 function openImgOverlay(imgUrl, alt) {
@@ -108,18 +108,19 @@ export function renderMatFields() {
     const card = document.createElement("div");
     card.className = "mat-card";
 
-    const badge = mat.obrigatorio
-      ? `<span class="badge badge-req">obrigatório</span>`
-      : `<span class="badge badge-opt">opcional</span>`;
-
     const label = mat.qty > 1 ? `${mat.qty}× ${mat.nome}` : mat.nome;
+    const imgTag = mat.imgUrl
+      ? `<img src="${mat.imgUrl}" alt="${mat.nome}" class="mat-img" />`
+      : `<span class="mat-img-placeholder"></span>`;
 
     card.innerHTML = `
       <div class="mat-header">
-        <span class="mat-nome">${label}</span>
-        ${badge}
+        ${imgTag}
+        <div class="mat-info">
+          <span class="mat-nome">${label}</span>
+          <label class="mat-label" for="mat-${state.runaIdx}-${i}">preço unitário (Z)</label>
+        </div>
       </div>
-      <label class="mat-label" for="mat-${state.runaIdx}-${i}">preço unitário (Z)</label>
       <input
         class="mat-input"
         id="mat-${state.runaIdx}-${i}"

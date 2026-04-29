@@ -411,9 +411,28 @@ input[type="number"]:focus {
 
 .mat-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.mat-img {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+}
+
+.mat-img-placeholder {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.mat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .mat-nome {

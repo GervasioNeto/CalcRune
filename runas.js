@@ -17,11 +17,26 @@ export const RUNAS = [
     habilidade: "Força Titânica",
     dif: 5,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Cabelo Azul", qty: 1, obrigatorio: true },
-      { nome: "Garra de Lobo do Deserto", qty: 1, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Cabelo Azul",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/1034.png",
+      },
+      {
+        nome: "Garra de Lobo do Deserto",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7030.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12731",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12731.png",
     runeDesc: `-------------------------
       FOR +30.
       Dano físico corpo a corpo +15%.
@@ -40,10 +55,20 @@ export const RUNAS = [
     habilidade: "Vitalidade Rúnica",
     dif: 10,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Coração Incandescente", qty: 1, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Coração Incandescente",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7097.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12728",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12728.png",
     runeDesc: `-------------------------
       Cura recebida +50%.
       Resistência a danos refletidos +50%.
@@ -56,12 +81,32 @@ export const RUNAS = [
     habilidade: "Explosão Rúnica",
     dif: 10,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
-      { nome: "Corrente", qty: 1, obrigatorio: true },
-      { nome: "Canino de Dragão", qty: 1, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Partículas de Luz",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7938.png",
+      },
+      {
+        nome: "Corrente",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7221.png",
+      },
+      {
+        nome: "Canino de Dragão",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/1035.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12732",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12732.png",
     runeDesc: `-------------------------
       Causa dano físico corpo a corpo na área de 7x7 células ao redor do usuário.
       O dano é influenciado pelo nível de [Perícia em Runas], FOR e nível de base do usuário.
@@ -75,11 +120,26 @@ export const RUNAS = [
     habilidade: "Escamas Rochosas",
     dif: 5,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Casca Arredondada", qty: 1, obrigatorio: true },
-      { nome: "Pele de Dragão", qty: 1, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Casca Arredondada",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/1096.png",
+      },
+      {
+        nome: "Pele de Dragão",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7123.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12733",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12733.png",
     runeDesc: `-------------------------
       Drena 20% do HP máx.
       Bônus de DEF e DEFM de acordo com o nível de [Perícia em Runas] e o nível de classe do usuário.
@@ -95,11 +155,26 @@ export const RUNAS = [
     habilidade: "Aura de Combate",
     dif: 5,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
-      { nome: "Dente de Ogro", qty: 1, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Partículas de Luz",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7938.png",
+      },
+      {
+        nome: "Dente de Ogro",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7002.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12729",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12729.png",
     runeDesc: `-------------------------
       ATQ +70.
       Aumenta a velocidade de ataque.
@@ -114,11 +189,26 @@ export const RUNAS = [
     habilidade: "Regeneração Espiritual",
     dif: 15,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Cabelo Horrendo", qty: 1, obrigatorio: true },
-      { nome: "Mel", qty: 1, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Cabelo Horrendo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/1048.png",
+      },
+      {
+        nome: "Mel",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/518.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12730",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12730.png",
     runeDesc: `-------------------------
       Regenera 60 de SP a cada 10 segundos.
       -------------------------
@@ -130,11 +220,26 @@ export const RUNAS = [
     habilidade: "Golpe Titânico",
     dif: 5,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
-      { nome: "Gema Vermelha", qty: 1, obrigatorio: false },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Partículas de Luz",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7938.png",
+      },
+      {
+        nome: "Gema Vermelha",
+        qty: 1,
+        obrigatorio: false,
+        imgUrl: "https://static.divine-pride.net/images/items/item/716.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12726",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12726.png",
     runeDesc: `-------------------------
       O próximo ataque básico causará um dano físico maior.
       Tem 20% de chance de destruir a sua arma.
@@ -153,12 +258,32 @@ export const RUNAS = [
     habilidade: "Purificação",
     dif: 15,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Partículas de Luz", qty: 1, obrigatorio: true },
-      { nome: "Armadura Destruída", qty: 1, obrigatorio: false },
-      { nome: "Pergaminho Antigo", qty: 1, obrigatorio: false },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Partículas de Luz",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7938.png",
+      },
+      {
+        nome: "Armadura Destruída",
+        qty: 1,
+        obrigatorio: false,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7069.png",
+      },
+      {
+        nome: "Pergaminho Antigo",
+        qty: 1,
+        obrigatorio: false,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7099.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12725",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12725.png",
     runeDesc: `-------------------------
       Regenera 25% de HP.
       Remove e garante imunidade a efeitos negativos.
@@ -174,10 +299,20 @@ export const RUNAS = [
     habilidade: "Escudos Milenares",
     dif: 20,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Armadura de Dullahan", qty: 1, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Armadura de Dullahan",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7210.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/12727",
+    imgUrl: "https://static.divine-pride.net/images/items/item/12727.png",
     runeDesc: `-------------------------
       Invoca entre 2 a 4 escudos de 1.000 de HP cada.
       Cada escudo possui a mesma DEF e DEFM do usuário.
@@ -191,11 +326,26 @@ export const RUNAS = [
     habilidade: "Luz da Alma",
     dif: 20,
     mat: [
-      { nome: "Galho Antigo", qty: 1, obrigatorio: true },
-      { nome: "Partículas de Luz", qty: 3, obrigatorio: true },
-      { nome: "Ouro", qty: 3, obrigatorio: true },
+      {
+        nome: "Galho Antigo",
+        qty: 1,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7939.png",
+      },
+      {
+        nome: "Partículas de Luz",
+        qty: 3,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/7938.png",
+      },
+      {
+        nome: "Ouro",
+        qty: 3,
+        obrigatorio: true,
+        imgUrl: "https://static.divine-pride.net/images/items/item/969.png",
+      },
     ],
-    imgUrl: "https://www.divine-pride.net/img/items/item/LATAM/22540",
+    imgUrl: "https://static.divine-pride.net/images/items/item/22540.png",
     runeDesc: `-------------------------
       Dano crítico +30%.
       HP e SP máx. +30%.
