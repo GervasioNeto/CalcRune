@@ -78,20 +78,26 @@ export function renderMatFields() {
   container.innerHTML = "";
   const runa = RUNAS[state.runaIdx];
 
-  if (runa.imgUrl) {
-    const header = document.createElement("div");
-    header.className = "runa-img-header";
+  let detailsEl = null;
+  if (runa.imgUrl || runa.runeDesc) {
     const desc = runa.runeDesc
       ? `<p class="runa-desc">${runa.runeDesc.replace(/\n/g, "<br>")}</p>`
       : "";
-    header.innerHTML = `
-      <img src="${imgUrlLarge(runa.imgUrl)}" alt="${runa.nome}" class="runa-img-big" />
-      <div class="runa-info">
-        <span class="runa-info-nome">${runa.nome}</span>
-        <span class="runa-info-hab">${runa.habilidade}</span>
+    const imgTag = runa.imgUrl
+      ? `<img src="${imgUrlLarge(runa.imgUrl)}" alt="${runa.nome}" class="runa-img-big" />`
+      : "";
+    detailsEl = document.createElement("details");
+    detailsEl.className = "runa-details";
+    detailsEl.innerHTML = `
+      <summary class="runa-summary">
+        <span class="runa-summary-nome">${runa.nome}</span>
+        <span class="runa-summary-hab">${runa.habilidade}</span>
+        <span class="runa-summary-chevron">▾</span>
+      </summary>
+      <div class="runa-details-body">
+        ${imgTag}
         ${desc}
       </div>`;
-    container.appendChild(header);
   }
 
   runa.mat.forEach((mat, i) => {
@@ -124,6 +130,8 @@ export function renderMatFields() {
     `;
     container.appendChild(card);
   });
+
+  if (detailsEl) container.appendChild(detailsEl);
 
   container.querySelectorAll(".mat-input").forEach((el) => {
     el.addEventListener("input", () => {

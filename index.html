@@ -21,57 +21,71 @@
       <div class="header-rune-deco">ᚦ ᛁ ᚹ ᚺ ᛟ ᚢ ᚱ ᚾ ᛒ ᛚ</div>
     </header>
 
-    <!-- ATRIBUTOS -->
-    <section aria-labelledby="title-attrs">
-      <h2 class="section-title" id="title-attrs">Atributos do personagem</h2>
-      <div class="attrs-grid">
-        <div class="attr-field">
-          <label for="des">Destreza (DES)</label>
-          <input type="number" id="des" value="" min="1" max="300" placeholder="0"/>
-        </div>
-        <div class="attr-field">
-          <label for="sor">Sorte (SOR)</label>
-          <input type="number" id="sor" value="" min="1" max="300" placeholder="0" />
-        </div>
-        <div class="attr-field">
-          <label for="nvcl">Nível de classe</label>
-          <input type="number" id="nvcl" value="70" min="1" max="70" placeholder="1" />
-        </div>
-        <div class="attr-field">
-          <label for="nvpericia">Perícia em Runas (Nv.)</label>
-          <input type="number" id="nvpericia" value="10" min="1" max="10" placeholder="1" />
-        </div>
+    <div class="main-grid">
+
+      <!-- COLUNA ESQUERDA -->
+      <div class="col-left">
+
+        <!-- ATRIBUTOS -->
+        <section aria-labelledby="title-attrs">
+          <h2 class="section-title" id="title-attrs">Atributos do personagem</h2>
+          <div class="attrs-grid">
+            <div class="attr-field">
+              <label for="des">Destreza (DES)</label>
+              <input type="number" id="des" value="" min="1" max="300" placeholder="0"/>
+            </div>
+            <div class="attr-field">
+              <label for="sor">Sorte (SOR)</label>
+              <input type="number" id="sor" value="" min="1" max="300" placeholder="0" />
+            </div>
+            <div class="attr-field">
+              <label for="nvcl">Nível de classe</label>
+              <input type="number" id="nvcl" value="70" min="1" max="70" placeholder="1" />
+            </div>
+            <div class="attr-field">
+              <label for="nvpericia">Perícia em Runas</label>
+              <input type="number" id="nvpericia" value="10" min="1" max="10" placeholder="1" />
+            </div>
+          </div>
+          <div class="formula-box">
+            Fórmula oficial:
+            <code>Chance = (30 + Perícia×2) + (DES÷30 + SOR÷10 + Nv.Classe÷10) + Raridade − Dificuldade</code>
+          </div>
+        </section>
+
+        <!-- SELEÇÃO DA RUNA -->
+        <section aria-labelledby="title-runa">
+          <h2 class="section-title" id="title-runa">Runa que deseja criar</h2>
+          <div id="runa-tabs" role="group" aria-label="Selecione a runa"></div>
+        </section>
+
+        <!-- MATERIAIS -->
+        <section aria-labelledby="title-mat">
+          <h2 class="section-title" id="title-mat">Preço dos materiais</h2>
+          <div id="mat-fields"></div>
+        </section>
+
       </div>
-      <div class="formula-box">
-        Fórmula oficial:
-        <code>Chance = (30 + Perícia×2) + (DES÷30 + SOR÷10 + Nv.Classe÷10) + Raridade − Dificuldade</code>
+
+      <!-- COLUNA DIREITA -->
+      <div class="col-right">
+
+        <!-- RUNA BRUTA -->
+        <section aria-labelledby="title-bruta">
+          <h2 class="section-title" id="title-bruta">Selecione a runa bruta</h2>
+          <div id="bruta-cards" role="group" aria-label="Selecione a runa bruta"></div>
+        </section>
+
+        <!-- RESULTADO -->
+        <section aria-labelledby="title-result">
+          <h2 class="section-title" id="title-result">Resultado</h2>
+          <div id="metrics"></div>
+          <div id="verdict" aria-live="polite"></div>
+        </section>
+
       </div>
-    </section>
 
-    <!-- SELEÇÃO DA RUNA -->
-    <section aria-labelledby="title-runa">
-      <h2 class="section-title" id="title-runa">Runa que deseja criar</h2>
-      <div id="runa-tabs" role="group" aria-label="Selecione a runa"></div>
-    </section>
-
-    <!-- MATERIAIS -->
-    <section aria-labelledby="title-mat">
-      <h2 class="section-title" id="title-mat">Preço dos materiais</h2>
-      <div id="mat-fields"></div>
-    </section>
-
-    <!-- RUNA BRUTA -->
-    <section aria-labelledby="title-bruta">
-      <h2 class="section-title" id="title-bruta">Selecione a runa bruta</h2>
-      <div id="bruta-cards" role="group" aria-label="Selecione a runa bruta"></div>
-    </section>
-
-    <!-- RESULTADO -->
-    <section aria-labelledby="title-result">
-      <h2 class="section-title" id="title-result">Resultado</h2>
-      <div id="metrics"></div>
-      <div id="verdict" aria-live="polite"></div>
-    </section>
+    </div>
 
   </div>
 

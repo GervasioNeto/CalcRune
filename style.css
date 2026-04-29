@@ -69,9 +69,30 @@ body::before {
 .container {
   position: relative;
   z-index: 1;
-  max-width: 860px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.25rem 4rem;
+  padding: 0 1.5rem 4rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.col-right {
+  position: sticky;
+  top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  .col-right {
+    position: static;
+  }
 }
 
 /* ─── Header ──────────────────────────────────────────────────────────────── */
@@ -167,8 +188,9 @@ section {
 /* ─── Inputs de atributos ─────────────────────────────────────────────────── */
 .attrs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 10px;
+  align-items: end;
 }
 
 .attr-field {
@@ -281,12 +303,58 @@ input[type="number"]:focus {
   height: 24px;
 }
 
-.runa-img-header {
+.runa-details {
   grid-column: 1 / -1;
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.runa-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.runa-summary::-webkit-details-marker { display: none; }
+
+.runa-summary:hover {
+  background: var(--bg-hover);
+}
+
+.runa-summary-nome {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gold-light);
+}
+
+.runa-summary-hab {
+  font-size: 12px;
+  color: var(--text-2);
+  flex: 1;
+}
+
+.runa-summary-chevron {
+  font-size: 14px;
+  color: var(--text-3);
+  transition: transform 0.2s;
+}
+
+.runa-details[open] .runa-summary-chevron {
+  transform: rotate(180deg);
+}
+
+.runa-details-body {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  margin-bottom: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
 }
 
 .runa-img-big {
@@ -296,25 +364,7 @@ input[type="number"]:focus {
   flex-shrink: 0;
 }
 
-.runa-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.runa-info-nome {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--gold-light);
-}
-
-.runa-info-hab {
-  font-size: 13px;
-  color: var(--text-2);
-}
-
 .runa-desc {
-  margin: 4px 0 0;
   font-size: 12px;
   color: var(--text-2);
   line-height: 1.6;
