@@ -47,6 +47,12 @@ export function qtdPorPericia(nvPericia) {
   return 2;
 }
 
+export function qtdRangeTexto(nvPericia) {
+  if (nvPericia >= 10) return "2~6";
+  if (nvPericia >= 5)  return "2~4";
+  return "2";
+}
+
 export function calcCustoEsperado(custoPorTentativa, chance, qtd = 1) {
   if (chance <= 0) return Infinity;
   return Math.round((custoPorTentativa * (100 / chance)) / qtd);

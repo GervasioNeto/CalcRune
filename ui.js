@@ -6,6 +6,7 @@ import {
   calcCustoEsperado,
   melhorBruta,
   qtdPorPericia,
+  qtdRangeTexto,
 } from "./calc.js";
 
 // ─── Estado global da aplicação ───────────────────────────────────────────────
@@ -35,7 +36,7 @@ function imgUrlLarge(imgUrl) {
 
 function openImgOverlay(imgUrl, alt) {
   const overlay = document.getElementById("img-overlay");
-  const img     = document.getElementById("img-overlay-src");
+  const img = document.getElementById("img-overlay-src");
   img.src = imgUrlLarge(imgUrl);
   img.alt = alt;
   overlay.classList.remove("hidden");
@@ -54,7 +55,9 @@ export function renderRunaTabs() {
   RUNAS.forEach((r, i) => {
     const btn = document.createElement("button");
     btn.className = "tab-btn" + (i === state.runaIdx ? " active" : "");
-    const imgTag = r.imgUrl ? `<img class="tab-img" src="${r.imgUrl}" alt="${r.nome}" />` : `<span class="tab-img-placeholder"></span>`;
+    const imgTag = r.imgUrl
+      ? `<img class="tab-img" src="${r.imgUrl}" alt="${r.nome}" />`
+      : `<span class="tab-img-placeholder"></span>`;
     btn.innerHTML = `${imgTag}${r.nome}<span class="tab-dif">Dificuldade ${r.dif}%</span>`;
     btn.setAttribute("aria-pressed", i === state.runaIdx);
     btn.addEventListener("click", () => {
@@ -204,7 +207,11 @@ export function renderResults() {
   const custoMat = calcCustoMat(runa, state.precosMat[state.runaIdx]);
   const ch = calcChance(runa, bruta, attrs());
   const totalTent = bruta.preco + custoMat;
-  const esp = calcCustoEsperado(totalTent, ch, qtdPorPericia(attrs().nvPericia));
+  const esp = calcCustoEsperado(
+    totalTent,
+    ch,
+    qtdPorPericia(attrs().nvPericia),
+  );
   const tentativas = (100 / ch).toFixed(1);
 
   const melhor = melhorBruta(
@@ -228,6 +235,8 @@ export function renderResults() {
     <div class="metric-card">
       <div class="metric-label">média de tentativas</div>
       <div class="metric-value">${tentativas}×</div>
+      <div class="metric-sub">Quantidade criada: ${qtdRangeTexto(attrs().nvPericia)}</div>
+      <div class="metric-sub">Média por craft: ${qtdPorPericia(attrs().nvPericia)}</div>
     </div>
     <div class="metric-card highlight">
       <div class="metric-label">gasto médio por runa</div>
