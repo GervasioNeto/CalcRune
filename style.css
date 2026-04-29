@@ -206,7 +206,8 @@ section {
   color: var(--text-2);
 }
 
-input[type="number"] {
+input[type="number"],
+input[type="text"] {
   background: var(--bg-card);
   border: 1px solid var(--border-md);
   border-radius: var(--radius-sm);
@@ -221,7 +222,8 @@ input[type="number"] {
 
 input[type="number"]::-webkit-inner-spin-button { display: none; }
 
-input[type="number"]:focus {
+input[type="number"]:focus,
+input[type="text"]:focus {
   outline: none;
   border-color: var(--gold);
   background: var(--bg-hover);

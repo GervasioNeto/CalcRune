@@ -124,10 +124,10 @@ export function renderMatFields() {
       <input
         class="mat-input"
         id="mat-${state.runaIdx}-${i}"
-        type="number"
-        min="0"
+        type="text"
+        inputmode="numeric"
         placeholder="0"
-        value="${saved}"
+        value="${saved ? Number(saved).toLocaleString("pt-BR") : ""}"
         data-ridx="${state.runaIdx}"
         data-midx="${i}"
       >
@@ -139,11 +139,20 @@ export function renderMatFields() {
 
   container.querySelectorAll(".mat-input").forEach((el) => {
     el.addEventListener("input", () => {
+      el.value = el.value.replace(/\D/g, "");
       const ri = Number(el.dataset.ridx);
       const mi = Number(el.dataset.midx);
       state.precosMat[ri][mi] = el.value;
       renderBrutaCards();
       renderResults();
+    });
+    el.addEventListener("blur", () => {
+      const raw = Number(el.value.replace(/\D/g, "")) || 0;
+      if (raw > 0) el.value = raw.toLocaleString("pt-BR");
+    });
+    el.addEventListener("focus", () => {
+      const raw = el.value.replace(/\D/g, "");
+      el.value = raw;
     });
   });
 }
