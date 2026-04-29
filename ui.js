@@ -5,7 +5,7 @@ import {
   calcCustoMat,
   calcCustoEsperado,
   melhorBruta,
-  parseQtd,
+  qtdPorPericia,
 } from "./calc.js";
 
 // ─── Estado global da aplicação ───────────────────────────────────────────────
@@ -156,7 +156,7 @@ export function renderBrutaCards() {
     const esp = calcCustoEsperado(
       br.preco + custoMat,
       ch,
-      parseQtd(runa.qtdCriada),
+      qtdPorPericia(attrs().nvPericia),
     );
 
     const card = document.createElement("div");
@@ -204,7 +204,7 @@ export function renderResults() {
   const custoMat = calcCustoMat(runa, state.precosMat[state.runaIdx]);
   const ch = calcChance(runa, bruta, attrs());
   const totalTent = bruta.preco + custoMat;
-  const esp = calcCustoEsperado(totalTent, ch, parseQtd(runa.qtdCriada));
+  const esp = calcCustoEsperado(totalTent, ch, qtdPorPericia(attrs().nvPericia));
   const tentativas = (100 / ch).toFixed(1);
 
   const melhor = melhorBruta(
@@ -226,11 +226,11 @@ export function renderResults() {
       <div class="metric-sub">runa + materiais</div>
     </div>
     <div class="metric-card">
-      <div class="metric-label">tentativas esperadas</div>
+      <div class="metric-label">média de tentativas</div>
       <div class="metric-value">${tentativas}×</div>
     </div>
     <div class="metric-card highlight">
-      <div class="metric-label">custo esperado/sucesso</div>
+      <div class="metric-label">gasto médio por runa</div>
       <div class="metric-value">${fmt(esp)} Z</div>
     </div>
   `;

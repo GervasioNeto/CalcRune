@@ -40,11 +40,11 @@ export function calcCustoMat(runa, precos) {
  * @param {number} chance             — chance em % (1–100)
  * @returns {number}
  */
-export function parseQtd(qtdCriada) {
-  if (!qtdCriada) return 1;
-  const partes = String(qtdCriada).split("a").map((s) => Number(s.trim()));
-  if (partes.length === 2) return (partes[0] + partes[1]) / 2;
-  return partes[0] || 1;
+// Nv.1-4 → 2 | Nv.5-9 → média 3 (2~4) | Nv.10 → média 4 (2~6)
+export function qtdPorPericia(nvPericia) {
+  if (nvPericia >= 10) return 4;
+  if (nvPericia >= 5)  return 3;
+  return 2;
 }
 
 export function calcCustoEsperado(custoPorTentativa, chance, qtd = 1) {
