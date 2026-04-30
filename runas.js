@@ -2,11 +2,36 @@
 // Fonte: wiki Rune Knight / Maestria em Runas (RK_RUNEMASTERY 2010)
 
 export const RUNAS_BRUTAS = [
-  { nome: "Comum", preco: 1000, raridade: 4 },
-  { nome: "Forte", preco: 2500, raridade: 8 },
-  { nome: "Rara", preco: 7500, raridade: 15 },
-  { nome: "Antiga", preco: 18000, raridade: 30 },
-  { nome: "Mística", preco: 50000, raridade: 60 },
+  {
+    nome: "Comum",
+    preco: 1000,
+    raridade: 4,
+    imgUrl: "https://static.divine-pride.net/images/items/item/12737.png",
+  },
+  {
+    nome: "Forte",
+    preco: 2500,
+    raridade: 8,
+    imgUrl: "https://static.divine-pride.net/images/items/item/12734.png",
+  },
+  {
+    nome: "Rara",
+    preco: 7500,
+    raridade: 15,
+    imgUrl: "https://static.divine-pride.net/images/items/item/12738.png",
+  },
+  {
+    nome: "Antiga",
+    preco: 18000,
+    raridade: 30,
+    imgUrl: "https://static.divine-pride.net/images/items/item/12735.png",
+  },
+  {
+    nome: "Mística",
+    preco: 50000,
+    raridade: 60,
+    imgUrl: "https://static.divine-pride.net/images/items/item/12736.png",
+  },
 ];
 
 // mat: [galho_antigo, item1, item2?, item3?]

@@ -178,11 +178,18 @@ export function renderBrutaCards() {
     card.setAttribute("tabindex", "0");
     card.setAttribute("aria-pressed", i === state.brutaIdx);
 
+    const imgTag = br.imgUrl
+      ? `<img src="${br.imgUrl}" alt="${br.nome}" class="bruta-img" />`
+      : `<span class="bruta-img-placeholder"></span>`;
+
     card.innerHTML = `
-      <div class="bruta-nome">Runa Bruta ${br.nome}</div>
-      <div class="bruta-preco">${fmt(br.preco)} Z</div>
-      <div class="bruta-chance">Chance: <strong>${ch}%</strong></div>
-      <div class="bruta-esp">~${fmt(esp)} Z/craft</div>
+      ${imgTag}
+      <div class="bruta-info">
+        <div class="bruta-nome">Runa Bruta ${br.nome}</div>
+        <div class="bruta-preco">${fmt(br.preco)} Z</div>
+        <div class="bruta-chance">Chance: <strong>${ch}%</strong></div>
+        <div class="bruta-esp">~${fmt(esp)} Z/craft</div>
+      </div>
     `;
 
     const select = () => {
@@ -257,8 +264,7 @@ export function renderResults() {
   verdictEl.innerHTML = isMelhor
     ? `<span class="verdict-good">✓ Runa Bruta ${bruta.nome} é a mais econômica para ${runa.nome} com seus atributos atuais.</span>`
     : `A opção mais econômica é <strong>Runa Bruta ${melhor.bruta.nome}</strong>
-       (custo esperado: <strong>${fmt(melhor.custoEsperado)} Z</strong>, chance: ${melhor.chance}%).
-       <span class="verdict-bad"> Você está pagando ${fmt(esp - melhor.custoEsperado)} Z a mais por craft.</span>`;
+       (custo esperado: <strong>${fmt(melhor.custoEsperado)} Z</strong>, chance: ${melhor.chance}%).`;
 }
 
 // ─── Inicialização ─────────────────────────────────────────────────────────────

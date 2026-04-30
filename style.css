@@ -493,11 +493,37 @@ input[type="text"]:focus {
   background: var(--bg-card);
   border: 1px solid var(--border-md);
   border-radius: var(--radius-lg);
-  padding: 14px 16px;
+  padding: 6px 6px;
   cursor: pointer;
   transition: all 0.15s;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bruta-img {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.bruta-img-placeholder {
+  /* width: 24px;
+  height: 24px;
+  flex-shrink: 0; */
+}
+
+.bruta-info {
+  display: flex;
+  flex-direction: column;
+  /* gap: 2px; */
+  position: relative;
+  z-index: 1;
 }
 
 .bruta-card::before {
