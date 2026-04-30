@@ -1,9 +1,9 @@
 # ᚱ Rune Knight — Rune Calc
 
 Calculadora de craft de runas para **Rune Knight** no Ragnarok Online.  
-Informe seus atributos e os preços de mercado do seu servidor para descobrir qual **Runa Bruta** tem o menor custo esperado por craft bem-sucedido.
+Informe seus atributos e os preços de mercado do seu servidor para descobrir qual **Runa Bruta** tem o menor gasto médio por runa criada.
 
-🔗 **[Acesse online →](https://seu-usuario.github.io/rk-rune-calc/)**
+🔗 **[Acesse online →](https://gervasioneto.github.io/CalcRune/)**
 
 ---
 
@@ -12,74 +12,64 @@ Informe seus atributos e os preços de mercado do seu servidor para descobrir qu
 A fórmula oficial de chance de craft é:
 
 ```
-Chance = [Base + (DES÷30 + SOR÷10 + Nv.Classe÷10) + Raridade − Dificuldade]%
+Chance = (30 + Perícia×2) + (DES÷30 + SOR÷10 + Nv.Classe÷10) + Raridade − Dificuldade
 ```
 
-A calculadora usa essa chance para calcular o **custo esperado por sucesso**:
+A quantidade de runas produzidas por craft depende do nível de **Perícia em Runas**:
 
-```
-Custo esperado = (preço da runa bruta + materiais) × (100 ÷ chance%)
-```
+| Nível de Perícia | Runas criadas |
+|-----------------|---------------|
+| 1 – 4           | 2             |
+| 5 – 9           | 2 ~ 4         |
+| 10              | 2 ~ 6         |
 
-Isso permite comparar diretamente se vale mais comprar uma Runa Bruta Comum barata (chance menor) ou uma Runa Bruta Mística cara (chance maior).
+O gasto médio por runa leva em conta a chance de sucesso, o custo de cada tentativa e a quantidade média produzida.
 
 ---
 
 ## Funcionalidades
 
-- Selecione qualquer uma das 10 runas (Thurisaz → Luxanima)
-- Insira os preços reais dos materiais do seu servidor
-- Veja a chance de sucesso para cada tipo de Runa Bruta
-- Resultado: custo esperado por craft bem-sucedido + comparativo automático de qual bruta compensa mais
+- 10 runas disponíveis (Thurisaz → Luxanima) com imagens e descrições
+- Imagens dos ingredientes de cada runa
+- Atributos configuráveis: DES, SOR, Nível de Classe e Nível de Perícia em Runas
+- Preços dos materiais por runa com formatação de milhar
+- Comparativo automático entre todas as Runas Brutas
+- Layout em duas colunas com resultado fixo na tela
+- Responsivo para mobile
 
 ---
 
 ## Estrutura do projeto
 
 ```
-rk-rune-calc/
-├── index.html          # HTML principal — estrutura e seções
-├── css/
-│   └── style.css       # Estilos (tema dark medieval)
-├── js/
-│   └── ui.js           # Renderização do DOM e estado da aplicação
-├── data/
-│   └── runas.js        # Dados das runas, materiais e runas brutas
-└── README.md
+CalcRune/
+├── index.html    # estrutura e seções
+├── style.css     # tema dark medieval
+├── ui.js         # renderização do DOM e estado
+├── calc.js       # lógica de cálculo (sem DOM)
+├── runas.js      # dados das runas, materiais e runas brutas
+├── api.js        # utilitários de integração com Divine Pride
+└── favicon.ico
 ```
-
-- **`data/runas.js`** — fonte da verdade: todos os dados de runas e materiais em um só lugar
-- **`js/calc.js`** — lógica pura de cálculo (sem dependência de DOM), fácil de testar
-- **`js/ui.js`** — gerencia o estado e atualiza o DOM
-- **`index.html`** — só estrutura e imports, sem lógica embutida
 
 ---
 
 ## Como hospedar no GitHub Pages
 
-1. Faça um fork ou clone este repositório
+1. Fork ou clone o repositório
 2. Vá em **Settings → Pages**
 3. Em **Source**, selecione `main` branch e pasta `/root`
-4. Salve — seu site estará disponível em `https://seu-usuario.github.io/rk-rune-calc/`
+4. Salve — seu site estará disponível em `https://seu-usuario.github.io/CalcRune/`
 
-> O projeto usa ES Modules nativos (`type="module"`) — funciona sem bundler, direto no navegador.
-
----
-
-## Como contribuir
-
-Encontrou algum dado errado ou quer adicionar suporte a outro servidor/versão?
-
-1. Fork o repositório
-2. Edite `data/runas.js` com os dados corretos
-3. Abra um Pull Request descrevendo a mudança
+> Usa ES Modules nativos (`type="module"`) — sem bundler, funciona direto no navegador.
 
 ---
 
 ## Dados
 
 Baseados na wiki oficial de Rune Knight (habilidade `RK_RUNEMASTERY`, ID 2010).  
-Preços das Runas Brutas são os valores padrão de NPC — substitua pelos valores reais do seu servidor nos campos da calculadora.
+Imagens via [Divine Pride](https://www.divine-pride.net).  
+Preços são do seu servidor — insira os valores reais nos campos da calculadora.
 
 ---
 
